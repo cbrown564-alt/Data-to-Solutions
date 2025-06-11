@@ -456,6 +456,35 @@
                 animation: none;
             }
         }
+
+        .series-footer {
+            background: #f8fafc;
+            border-top: 1px solid #e5e7eb;
+            padding: 18pt 0 12pt 0;
+            text-align: center;
+            margin-top: 40pt;
+        }
+        .series-nav {
+            display: inline-block;
+            font-size: 11pt;
+            font-family: inherit;
+        }
+        .series-link {
+            color: #312e81;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 4pt 10pt;
+            border-radius: 8pt;
+            transition: background 0.2s, color 0.2s;
+        }
+        .series-link.current, .series-link:hover {
+            background: #312e81;
+            color: #fbbf24;
+        }
+        .series-sep {
+            color: #a1a1aa;
+            margin: 0 2pt;
+        }
     </style>
 </head>
 <body>
@@ -547,6 +576,16 @@
                 </div>
             </div>
         </div>
+
+        <footer class="series-footer">
+            <nav class="series-nav">
+                <a href="data_black_hole.html" class="series-link current">1. Data Black Hole</a>
+                <span class="series-sep">|</span>
+                <a href="mary_transformation.html" class="series-link">2. Mary's Transformation</a>
+                <span class="series-sep">|</span>
+                <a href="dual_track_solution.html" class="series-link">3. Dual Track Solution</a>
+            </nav>
+        </footer>
     </div>
 </body>
 </html>
