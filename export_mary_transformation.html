@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mary's Digital Transformation - From Invisible Worker to Integrated Economy Participant</title>
+    <meta name="description" content="How digital platforms transform lives and generate policy intelligence">
+    <meta property="og:title" content="Mary's Digital Transformation">
+    <meta property="og:description" content="From invisible worker to integrated economy participant">
+    <meta property="og:image" content="assets/02-impact-mary-transformation-social.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            background: white;
+            line-height: 1.5;
+            color: #1f2937;
+            font-size: 11pt;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 100vw;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
+            color: white;
+            padding: 40pt 50pt;
+            text-align: center;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4pt;
+            background: linear-gradient(90deg, #f59e0b 0%, #059669 100%);
+        }
+
+        .series-badge {
+            display: inline-block;
+            background: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+            padding: 8pt 16pt;
+            border-radius: 20pt;
+            font-size: 9pt;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16pt;
+            border: 1pt solid rgba(251, 191, 36, 0.3);
+        }
+
+        .main-title {
+            font-size: 28pt;
+            font-weight: 700;
+            margin-bottom: 8pt;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 14pt;
+            opacity: 0.9;
+            font-weight: 400;
+            margin-bottom: 4pt;
+        }
+
+        .context {
+            font-size: 11pt;
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        .story-container {
+            display: flex;
+            min-height: 600pt;
+            position: relative;
+            flex: 1;
+        }
+
+        .story-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3pt;
+            background: linear-gradient(90deg, 
+                rgba(245, 158, 11, 0.3) 0%, 
+                rgba(245, 158, 11, 0.1) 25%, 
+                rgba(5, 150, 105, 0.1) 75%, 
+                rgba(5, 150, 105, 0.3) 100%);
+        }
+
+        .story-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3pt;
+            background: linear-gradient(90deg, 
+                rgba(245, 158, 11, 0.3) 0%, 
+                rgba(245, 158, 11, 0.1) 25%, 
+                rgba(5, 150, 105, 0.1) 75%, 
+                rgba(5, 150, 105, 0.3) 100%);
+        }
+
+        .scenario {
+            flex: 1;
+            padding: 40pt;
+            position: relative;
+        }
+
+        .before {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-right: 3pt solid #f59e0b;
+        }
+
+        .before::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: -1.5pt;
+            width: 12pt;
+            background: linear-gradient(180deg, 
+                rgba(245, 158, 11, 0.4) 0%, 
+                rgba(245, 158, 11, 0.1) 50%, 
+                rgba(245, 158, 11, 0.4) 100%);
+        }
+
+        .after {
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+        }
+
+        .after::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: -1.5pt;
+            width: 12pt;
+            background: linear-gradient(180deg, 
+                rgba(5, 150, 105, 0.4) 0%, 
+                rgba(5, 150, 105, 0.1) 50%, 
+                rgba(5, 150, 105, 0.4) 100%);
+        }
+
+        .scenario-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24pt;
+            padding-bottom: 16pt;
+            border-bottom: 2pt solid rgba(0,0,0,0.15);
+        }
+
+        .scenario-icon {
+            width: 40pt;
+            height: 40pt;
+            border-radius: 10pt;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18pt;
+            margin-right: 16pt;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 4pt 12pt rgba(0,0,0,0.15);
+        }
+
+        .before .scenario-icon {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+
+        .after .scenario-icon {
+            background: linear-gradient(135deg, #059669, #047857);
+        }
+
+        .scenario-title {
+            font-size: 16pt;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 3pt;
+        }
+
+        .scenario-subtitle {
+            font-size: 10pt;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .time-indicator {
+            background: rgba(0,0,0,0.08);
+            color: #374151;
+            padding: 6pt 12pt;
+            border-radius: 15pt;
+            display: inline-block;
+            margin-bottom: 16pt;
+            font-weight: 600;
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .journey-step {
+            margin: 16pt 0;
+            padding: 18pt;
+            background: rgba(255,255,255,0.8);
+            border-radius: 10pt;
+            border-left: 4pt solid;
+            position: relative;
+            box-shadow: 0 2pt 8pt rgba(0,0,0,0.05);
+        }
+
+        .before .journey-step {
+            border-left-color: #f59e0b;
+        }
+
+        .after .journey-step {
+            border-left-color: #059669;
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8pt;
+        }
+
+        .step-time {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            color: white;
+            padding: 3pt 10pt;
+            border-radius: 12pt;
+            font-size: 8pt;
+            font-weight: 700;
+            margin-right: 10pt;
+            letter-spacing: 0.05em;
+            box-shadow: 0 0 10pt rgba(30, 27, 75, 0.3);
+        }
+
+        .step-title {
+            font-weight: 700;
+            font-size: 12pt;
+            color: #1f2937;
+        }
+
+        .step-description {
+            color: #4b5563;
+            line-height: 1.5;
+            font-size: 10pt;
+        }
+
+        .data-visualization {
+            margin-top: 24pt;
+            padding: 18pt;
+            background: rgba(255,255,255,0.9);
+            border-radius: 10pt;
+            border: 1pt solid rgba(0,0,0,0.1);
+            box-shadow: 0 2pt 8pt rgba(0,0,0,0.05);
+        }
+
+        .data-title {
+            font-weight: 700;
+            margin-bottom: 16pt;
+            color: #1f2937;
+            font-size: 11pt;
+            display: flex;
+            align-items: center;
+        }
+
+        .data-title::before {
+            content: '📊';
+            margin-right: 8pt;
+            font-size: 14pt;
+        }
+
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 8pt 0;
+            padding: 6pt 0;
+            border-bottom: 1pt solid rgba(0,0,0,0.08);
+            font-size: 9pt;
+        }
+
+        .metric:last-child {
+            border-bottom: none;
+        }
+
+        .metric-label {
+            color: #374151;
+            font-weight: 500;
+        }
+
+        .metric-value {
+            font-weight: 700;
+            padding: 3pt 10pt;
+            border-radius: 6pt;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 8pt;
+        }
+
+        .invisible {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .visible {
+            background: #d1fae5;
+            color: #059669;
+        }
+
+        .transformation-arrow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50pt;
+            height: 50pt;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20pt;
+            color: #0f172a;
+            box-shadow: 0 6pt 20pt rgba(0,0,0,0.15);
+            border: 3pt solid #e5e7eb;
+            font-weight: bold;
+            z-index: 10;
+        }
+
+        .phone-mockup {
+            margin-top: 16pt;
+            width: 80pt;
+            height: 120pt;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            border-radius: 12pt;
+            padding: 10pt;
+            box-shadow: 
+                0 8pt 16pt rgba(30, 27, 75, 0.4),
+                0 0 24pt rgba(15, 23, 42, 0.2);
+            border: 1pt solid #312e81;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 30%, #020617 0%, #000000 100%);
+            border-radius: 8pt;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Courier New', monospace;
+            font-size: 7pt;
+            text-align: center;
+            line-height: 1.3;
+            padding: 8pt;
+            font-weight: 600;
+            border: 0.5pt solid #1e1b4b;
+        }
+
+        .before .phone-screen {
+            color: #ef4444;
+        }
+
+        .after .phone-screen {
+            color: #22c55e;
+        }
+
+        .impact-summary {
+            padding: 40pt 50pt;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .impact-summary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4pt;
+            background: linear-gradient(90deg, #f59e0b 0%, #059669 100%);
+        }
+
+        .impact-title {
+            font-size: 18pt;
+            font-weight: 700;
+            margin-bottom: 24pt;
+            letter-spacing: -0.02em;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16pt;
+            margin-top: 24pt;
+        }
+
+        .impact-card {
+            background: rgba(255,255,255,0.15);
+            padding: 20pt 16pt;
+            border-radius: 10pt;
+            border: 1pt solid rgba(255,255,255,0.2);
+        }
+
+        .impact-number {
+            font-size: 20pt;
+            font-weight: 800;
+            margin-bottom: 6pt;
+            letter-spacing: -0.02em;
+        }
+
+        .impact-label {
+            font-size: 8pt;
+            opacity: 0.9;
+            font-weight: 500;
+            line-height: 1.3;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .citation {
+            margin-top: 16pt;
+            font-size: 8pt;
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        .next-steps {
+            background: rgba(251, 191, 36, 0.1);
+            border: 2pt solid rgba(251, 191, 36, 0.3);
+            border-radius: 12pt;
+            padding: 20pt;
+            margin-top: 24pt;
+        }
+
+        .next-steps-title {
+            font-size: 14pt;
+            font-weight: 700;
+            color: #fbbf24;
+            margin-bottom: 12pt;
+        }
+
+        .next-steps-text {
+            font-size: 12pt;
+            opacity: 0.9;
+        }
+
+        /* Responsive design */
+        @media screen and (max-width: 1024px) {
+            .story-container {
+                flex-direction: column;
+                min-height: auto;
+            }
+            
+            .scenario {
+                padding: 30pt 25pt;
+            }
+            
+            .before {
+                border-right: none;
+                border-bottom: 3pt solid #f59e0b;
+            }
+            
+            .before::after {
+                display: none;
+            }
+            
+            .after::before {
+                display: none;
+            }
+            
+            .transformation-arrow {
+                position: relative;
+                margin: 20pt auto;
+                transform: none;
+                top: auto;
+                left: auto;
+            }
+            
+            .impact-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12pt;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .header, .impact-summary {
+                padding: 30pt 25pt;
+            }
+            
+            .main-title {
+                font-size: 24pt;
+            }
+            
+            .scenario {
+                padding: 25pt 20pt;
+            }
+            
+            .impact-grid {
+                grid-template-columns: 1fr;
+                gap: 12pt;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                font-size: 10pt;
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+            
+            .container {
+                max-width: none;
+                margin: 0;
+                min-height: auto;
+            }
+            
+            .story-container {
+                min-height: 400pt;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="series-badge">Data to Solutions • Part 2 of 3</div>
+            <h1 class="main-title">Mary's Digital Transformation</h1>
+            <div class="subtitle">From Invisible Worker to Integrated Economy Participant</div>
+            <div class="context">Case Study: Zambia's Circular Economy Data Revolution</div>
+        </div>
+
+        <div class="story-container">
+            <div class="scenario before">
+                <div class="scenario-header">
+                    <div class="scenario-icon">!</div>
+                    <div>
+                        <div class="scenario-title">BEFORE: Statistical Darkness</div>
+                        <div class="scenario-subtitle">Current Reality - Invisible Economy</div>
+                    </div>
+                </div>
+                
+                <div class="time-indicator">Dawn, Ng'ombe Compound</div>
+                
+                <div class="journey-step">
+                    <div class="step-header">
+                        <div class="step-time">05:30</div>
+                        <div class="step-title">Invisible Start</div>
+                    </div>
+                    <div class="step-description">
+                        Mary begins her route with no record of her expertise, no connection to formal systems. Years of knowledge remain invisible to policy makers.
+                    </div>
+                </div>
+
+                <div class="journey-step">
+                    <div class="step-header">
+                        <div class="step-time">06:00-12:00</div>
+                        <div class="step-title">Navigate Unmarked Paths</div>
+                    </div>
+                    <div class="step-description">
+                        Route knowledge, customer relationships, material quality expertise - all invisible to municipal planning and waste management systems.
+                    </div>
+                </div>
+
+                <div class="journey-step">
+                    <div class="step-header">
+                        <div class="step-time">12:00-17:00</div>
+                        <div class="step-title">Phone Contains Only Record</div>
+                    </div>
+                    <div class="step-description">
+                        Her mobile holds the only data about today's collections - never reaching municipal databases or policy frameworks.
+                    </div>
+                </div>
+
+                <div class="journey-step">
+                    <div class="step-header">
+                        <div class="step-time">17:00+</div>
+                        <div class="step-title">Negotiated Prices</div>
+                    </div>
+                    <div class="step-description">
+                        Cash transactions with no transparency, no market rate information, no financial inclusion pathways. Limited access to formal economic systems.
+                    </div>
+                </div>
+
+                <div class="data-visualization">
+                    <div class="data-title">Data Status</div>
+                    <div class="metric">
+                        <span class="metric-label">Economic Contribution</span>
+                        <span class="metric-value invisible">Invisible</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Route Efficiency</span>
+                        <span class="metric-value invisible">Unmeasured</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Market Access</span>
+                        <span class="metric-value invisible">Limited</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Social Protection</span>
+                        <span class="metric-value invisible">Excluded</span>
+                    </div>
+                </div>
+
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        NO DATA<br/>
+                        CAPTURED<br/>
+                        ⚠️<br/>
+                        OFFLINE
+                    </div>
+                </div>
+            </div>
+
+            <div class="transformation-arrow">→</div>
+
+            <div class="scenario after">
+                <div class="scenario-header">
+                    <div class="scenario-icon">✓</div>
+                    <div>
+                        <div class="scenario-title">AFTER: Digital Integration</div>
+                        <div class="scenario-subtitle">SME Platform Enabled Future</div>
+                    </div>
+                </div>
+                
+                <div class="time-indicator">Dawn, Ng'ombe Compound</div>
+                
+                <div class="journey-step">
+                    <div class="step-header">
+                        <div class="step-time">05:30</div>
+                        <div class="step-title">USSD Check-In</div>
+                    </div>
+                    <div class="step-description">
+                        Simple *123# code reports her location, generates real-time route optimization, connects to municipal data systems.
+                    </div>
+                </div>
+
+                <div class="journey-step">
+                    <div class="step-header">
+                        <div class="step-time">06:00-12:00</div>
+                        <div class="step-title">GPS-Optimized Routes</div>
+                    </div>
+                    <div class="step-description">
+                        Platform suggests efficient collection paths, reducing time by 15-20% while tracking valuable expertise for policy development.
+                    </div>
+                </div>
+
+                <div class="journey-step">
+                    <div class="step-header">
+                        <div class="step-time">12:00-17:00</div>
+                        <div class="step-title">Real-Time Data Generation</div>
+                    </div>
+                    <div class="step-description">
+                        Every collection becomes a data point for municipal planning, creating comprehensive waste stream intelligence.
+                    </div>
+                </div>
+
+                <div class="journey-step">
+                    <div class="step-header">
+                        <div class="step-time">17:00+</div>
+                        <div class="step-title">Mobile Money Integration</div>
+                    </div>
+                    <div class="step-description">
+                        Instant transparent payments, market rate pricing, financial inclusion pathways, verified transaction histories.
+                    </div>
+                </div>
+
+                <div class="data-visualization">
+                    <div class="data-title">Data Status</div>
+                    <div class="metric">
+                        <span class="metric-label">Economic Contribution</span>
+                        <span class="metric-value visible">Measured</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Route Efficiency</span>
+                        <span class="metric-value visible">Optimized</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Market Access</span>
+                        <span class="metric-value visible">Transparent</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Social Protection</span>
+                        <span class="metric-value visible">Accessible</span>
+                    </div>
+                </div>
+
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        *123#<br/>
+                        ✓ LOGGED<br/>
+                        GPS ON<br/>
+                        📍 SYNC
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="impact-summary">
+            <h2 class="impact-title">Transformation Impact: Making the Invisible Visible</h2>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-number">USD 340M</div>
+                    <div class="impact-label">Hidden Economy Made Visible</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-number">155,000</div>
+                    <div class="impact-label">Workers Like Mary Supported</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-number">2.1M</div>
+                    <div class="impact-label">Tonnes Tracked Annually</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-number">15-20%</div>
+                    <div class="impact-label">Efficiency Improvement</div>
+                </div>
+            </div>
+            <div class="citation">
+                Sources: Self Help Africa Zambia Circular Economy Study 2024; International Labour Organization Analysis 2018
+            </div>
+            
+            <div class="next-steps">
+                <div class="next-steps-title">🔧 Next in Series</div>
+                <div class="next-steps-text">
+                    Discover the inclusive technology design that ensures Mary and 155,000 workers like her can participate regardless of their device or connectivity.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

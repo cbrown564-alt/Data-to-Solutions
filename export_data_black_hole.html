@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The USD 340 Million Data Black Hole - Zambia's Invisible Economy</title>
+    <meta name="description" content="Where 2.1 million tonnes of economic activity disappear from official statistics">
+    <meta property="og:title" content="The USD 340 Million Data Black Hole">
+    <meta property="og:description" content="55% of Zambia's waste economy is invisible to policymakers">
+    <meta property="og:image" content="assets/01-problem-data-black-hole-social.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            background: white;
+            line-height: 1.5;
+            color: #1f2937;
+            font-size: 11pt;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 100vw;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
+            color: white;
+            padding: 40pt 50pt;
+            text-align: center;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4pt;
+            background: linear-gradient(90deg, #f59e0b 0%, #059669 100%);
+        }
+
+        .series-badge {
+            display: inline-block;
+            background: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+            padding: 8pt 16pt;
+            border-radius: 20pt;
+            font-size: 9pt;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16pt;
+            border: 1pt solid rgba(251, 191, 36, 0.3);
+        }
+
+        .main-title {
+            font-size: 28pt;
+            font-weight: 700;
+            margin-bottom: 12pt;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 14pt;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .visualization-area {
+            background: radial-gradient(ellipse at center, #f8fafc 0%, #e2e8f0 100%);
+            flex: 1;
+            position: relative;
+            min-height: 600pt;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .data-universe {
+            position: relative;
+            width: 90%;
+            max-width: 800pt;
+            height: 500pt;
+            margin: 0 auto;
+        }
+
+        .black-hole {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 160pt;
+            height: 160pt;
+            background: radial-gradient(circle at 30% 40%,
+                #1e1b4b 0%,
+                #0f172a 25%,
+                #020617 50%,
+                #000000 100%);
+            border-radius: 50%;
+            box-shadow: 
+                inset 0 0 40pt rgba(30, 27, 75, 0.8),
+                inset 0 0 80pt rgba(15, 23, 42, 0.9),
+                0 0 60pt rgba(30, 27, 75, 0.4),
+                0 0 120pt rgba(15, 23, 42, 0.2);
+            z-index: 10;
+        }
+
+        .black-hole::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120pt;
+            height: 120pt;
+            background: radial-gradient(circle at 25% 35%,
+                #020617 0%,
+                #000000 70%,
+                #000000 100%);
+            border-radius: 50%;
+            box-shadow: 
+                inset 0 0 30pt rgba(0,0,0,1),
+                inset 0 0 60pt rgba(2, 6, 23, 0.8);
+        }
+
+        .black-hole-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fbbf24;
+            font-weight: 800;
+            font-size: 14pt;
+            text-align: center;
+            z-index: 20;
+            text-shadow: 0 0 6pt rgba(0,0,0,0.8);
+        }
+
+        .orbital-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 2pt dashed rgba(107, 114, 128, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .ring-1 {
+            width: 240pt;
+            height: 240pt;
+        }
+
+        .ring-2 {
+            width: 320pt;
+            height: 320pt;
+        }
+
+        .ring-3 {
+            width: 400pt;
+            height: 400pt;
+        }
+
+        .data-point {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.9;
+        }
+
+        .visible-data {
+            background: #059669;
+            box-shadow: 0 0 8pt rgba(5, 150, 105, 0.6);
+        }
+
+        .invisible-data {
+            background: #dc2626;
+            box-shadow: 0 0 8pt rgba(220, 38, 38, 0.6);
+        }
+
+        .data-point.large {
+            width: 12pt;
+            height: 12pt;
+        }
+
+        .data-point.medium {
+            width: 8pt;
+            height: 8pt;
+        }
+
+        .data-point.small {
+            width: 6pt;
+            height: 6pt;
+        }
+
+        .statistics-overlay {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12pt;
+            padding: 24pt 20pt;
+            box-shadow: 0 6pt 20pt rgba(0, 0, 0, 0.15);
+            border: 1pt solid #e5e7eb;
+            min-width: 120pt;
+            text-align: center;
+        }
+
+        .stat-topleft {
+            top: 40pt;
+            left: 40pt;
+        }
+
+        .stat-topright {
+            top: 40pt;
+            right: 40pt;
+        }
+
+        .stat-bottomleft {
+            bottom: 40pt;
+            left: 40pt;
+        }
+
+        .stat-bottomright {
+            bottom: 40pt;
+            right: 40pt;
+        }
+
+        .stat-number {
+            font-size: 28pt;
+            font-weight: 800;
+            margin-bottom: 8pt;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 10pt;
+            color: #6b7280;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            line-height: 1.2;
+        }
+
+        .invisible-stat .stat-number {
+            color: #dc2626;
+        }
+
+        .visible-stat .stat-number {
+            color: #059669;
+        }
+
+        .economic-stat .stat-number {
+            color: #f59e0b;
+        }
+
+        .event-horizon {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 3pt;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(251, 191, 36, 0.3) 20%, 
+                rgba(251, 191, 36, 0.8) 45%, 
+                rgba(251, 191, 36, 1) 50%, 
+                rgba(251, 191, 36, 0.8) 55%, 
+                rgba(251, 191, 36, 0.3) 80%, 
+                transparent 100%);
+            transform: translateY(-50%);
+            z-index: 5;
+        }
+
+        .horizon-explanation {
+            position: absolute;
+            top: 30pt;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        .horizon-badge {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            color: #fbbf24;
+            padding: 10pt 20pt;
+            border-radius: 15pt;
+            font-size: 10pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: 1pt solid rgba(251, 191, 36, 0.3);
+            margin-bottom: 8pt;
+            display: inline-block;
+            box-shadow: 0 0 15pt rgba(30, 27, 75, 0.3);
+        }
+
+        .horizon-description {
+            background: rgba(255, 255, 255, 0.95);
+            color: #6b7280;
+            padding: 8pt 20pt;
+            border-radius: 15pt;
+            font-size: 9pt;
+            font-style: italic;
+            border: 1pt solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3pt 12pt rgba(0, 0, 0, 0.1);
+            max-width: 400pt;
+            line-height: 1.4;
+        }
+
+        .impact-summary {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
+            color: white;
+            padding: 40pt 50pt;
+            text-align: center;
+            position: relative;
+        }
+
+        .impact-summary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4pt;
+            background: linear-gradient(90deg, #f59e0b 0%, #059669 100%);
+        }
+
+        .impact-title {
+            font-size: 20pt;
+            font-weight: 700;
+            margin-bottom: 16pt;
+            color: #fbbf24;
+        }
+
+        .impact-description {
+            font-size: 13pt;
+            line-height: 1.6;
+            max-width: 600pt;
+            margin: 0 auto 24pt;
+            opacity: 0.9;
+        }
+
+        .next-steps {
+            background: rgba(251, 191, 36, 0.1);
+            border: 2pt solid rgba(251, 191, 36, 0.3);
+            border-radius: 12pt;
+            padding: 20pt;
+            margin-top: 24pt;
+        }
+
+        .next-steps-title {
+            font-size: 14pt;
+            font-weight: 700;
+            color: #fbbf24;
+            margin-bottom: 12pt;
+        }
+
+        .next-steps-text {
+            font-size: 12pt;
+            opacity: 0.9;
+        }
+
+        /* Animation for floating data points */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(180deg); }
+        }
+
+        .data-point:nth-child(odd) {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .data-point:nth-child(even) {
+            animation: float 4s ease-in-out infinite 2s;
+        }
+
+        /* Responsive design */
+        @media screen and (max-width: 1024px) {
+            .header, .impact-summary {
+                padding: 30pt 25pt;
+            }
+            
+            .main-title {
+                font-size: 24pt;
+            }
+            
+            .data-universe {
+                width: 95%;
+                height: 400pt;
+            }
+            
+            .black-hole {
+                width: 120pt;
+                height: 120pt;
+            }
+            
+            .statistics-overlay {
+                padding: 16pt 12pt;
+                min-width: 100pt;
+            }
+            
+            .stat-number {
+                font-size: 20pt;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .visualization-area {
+                min-height: 500pt;
+            }
+            
+            .statistics-overlay {
+                position: relative;
+                margin: 10pt;
+                display: inline-block;
+            }
+            
+            .stat-topleft,
+            .stat-topright,
+            .stat-bottomleft,
+            .stat-bottomright {
+                position: relative;
+                top: auto;
+                left: auto;
+                right: auto;
+                bottom: auto;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                font-size: 10pt;
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+            
+            .container {
+                max-width: none;
+                margin: 0;
+                min-height: auto;
+            }
+            
+            .data-point {
+                animation: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="series-badge">Data to Solutions • Part 1 of 3</div>
+            <h1 class="main-title">The USD 340 Million Data Black Hole</h1>
+            <p class="subtitle">Where 2.1 Million Tonnes of Economic Activity Disappear</p>
+        </div>
+
+        <div class="visualization-area">
+            <div class="data-universe">
+                <!-- Event horizon line -->
+                <div class="event-horizon"></div>
+
+                <!-- Orbital rings showing data boundaries -->
+                <div class="orbital-ring ring-1"></div>
+                <div class="orbital-ring ring-2"></div>
+                <div class="orbital-ring ring-3"></div>
+
+                <!-- Central black hole -->
+                <div class="black-hole">
+                    <div class="black-hole-label">55%<br/>INVISIBLE</div>
+                </div>
+
+                <!-- Event horizon explanation -->
+                <div class="horizon-explanation">
+                    <div class="horizon-badge">Statistical Event Horizon</div>
+                    <div class="horizon-description">
+                        Beyond this point, economic activity becomes invisible to policy makers
+                    </div>
+                </div>
+
+                <!-- Floating data points -->
+                <!-- Visible data points (orbiting outside black hole) -->
+                <div class="data-point visible-data large" style="top: 15%; left: 20%;"></div>
+                <div class="data-point visible-data medium" style="top: 25%; left: 75%;"></div>
+                <div class="data-point visible-data small" style="top: 35%; right: 15%;"></div>
+                <div class="data-point visible-data large" style="bottom: 25%; left: 15%;"></div>
+                <div class="data-point visible-data medium" style="bottom: 35%; right: 25%;"></div>
+                <div class="data-point visible-data small" style="top: 45%; left: 10%;"></div>
+                <div class="data-point visible-data medium" style="bottom: 15%; right: 10%;"></div>
+
+                <!-- Invisible data points (being pulled into black hole) -->
+                <div class="data-point invisible-data large" style="top: 40%; left: 35%;"></div>
+                <div class="data-point invisible-data medium" style="top: 50%; left: 40%;"></div>
+                <div class="data-point invisible-data small" style="top: 55%; right: 35%;"></div>
+                <div class="data-point invisible-data large" style="bottom: 45%; left: 45%;"></div>
+                <div class="data-point invisible-data medium" style="top: 60%; right: 40%;"></div>
+                <div class="data-point invisible-data small" style="bottom: 50%; right: 45%;"></div>
+                <div class="data-point invisible-data large" style="top: 30%; left: 60%;"></div>
+                <div class="data-point invisible-data medium" style="bottom: 60%; left: 35%;"></div>
+                <div class="data-point invisible-data small" style="top: 65%; left: 55%;"></div>
+                <div class="data-point invisible-data large" style="bottom: 40%; right: 50%;"></div>
+
+                <!-- Corner statistics -->
+                <div class="statistics-overlay stat-topleft visible-stat">
+                    <div class="stat-number">45%</div>
+                    <div class="stat-label">Tracked<br/>Waste Streams</div>
+                </div>
+
+                <div class="statistics-overlay stat-topright invisible-stat">
+                    <div class="stat-number">2.1M</div>
+                    <div class="stat-label">Tonnes<br/>Untracked</div>
+                </div>
+
+                <div class="statistics-overlay stat-bottomleft economic-stat">
+                    <div class="stat-number">$340M</div>
+                    <div class="stat-label">Invisible<br/>Economy</div>
+                </div>
+
+                <div class="statistics-overlay stat-bottomright invisible-stat">
+                    <div class="stat-number">155K</div>
+                    <div class="stat-label">Workers<br/>Excluded</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="impact-summary">
+            <h2 class="impact-title">Policy Paralysis Effect</h2>
+            <div class="impact-description">
+                Without accurate data on waste generation rates, existing recycling capacities, or informal sector contributions, policymakers cannot establish realistic targets, design appropriate interventions, or measure progress toward stated objectives. The data black hole creates a feedback loop where the absence of information makes evidence-based decision-making virtually impossible.
+            </div>
+            
+            <div class="next-steps">
+                <div class="next-steps-title">🔍 Next in Series</div>
+                <div class="next-steps-text">
+                    See how digital platforms transform invisible workers like Mary into integrated economy participants while generating the policy intelligence Zambia needs.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
